@@ -1,0 +1,193 @@
+1. RGB - 
+
+int redPin = 9;
+int greenPin = 10;
+int bluePin = 11;
+
+void setup() {
+  pinMode(redPin, OUTPUT);
+  pinMode(greenPin, OUTPUT);
+  pinMode(bluePin, OUTPUT);
+}
+
+// Function to turn OFF all colours
+void clearPins() {
+  analogWrite(redPin, 255);
+  analogWrite(greenPin, 255);
+  analogWrite(bluePin, 255);
+}
+
+void loop() {
+
+  // RED
+  clearPins();
+  analogWrite(redPin, 0);
+  delay(1000);
+
+  // GREEN
+  clearPins();
+  analogWrite(greenPin, 0);
+  delay(1000);
+
+  // BLUE
+  clearPins();
+  analogWrite(bluePin, 0);
+  delay(1000);
+
+  // YELLOW
+  clearPins();
+  analogWrite(redPin, 0);
+  analogWrite(greenPin, 0);
+  delay(1000);
+
+  // CYAN
+  clearPins();
+  analogWrite(greenPin, 0);
+  analogWrite(bluePin, 0);
+  delay(1000);
+
+  // MAGENTA
+  clearPins();
+  analogWrite(redPin, 0);
+  analogWrite(bluePin, 0);
+  delay(1000);
+
+  // WHITE
+  clearPins();
+  analogWrite(redPin, 0);
+  analogWrite(greenPin, 0);
+  analogWrite(bluePin, 0);
+  delay(1000);
+
+  // OFF
+  clearPins();
+  delay(1000);
+}
+
+
+2. LM35 
+
+
+const int sensorPin = A0;
+
+void setup() {
+  Serial.begin(9600);
+}
+
+void loop() {
+  int sensorValue = analogRead(sensorPin);
+
+  float voltage = sensorValue * (5.0 / 1023.0);
+
+  float temperature = voltage * 100.0;
+
+  Serial.print("Temperature: ");
+  Serial.print(temperature);
+  Serial.println(" °C");
+
+  delay(1000);
+}
+
+3. DC motor - 
+int motorPin = 9; // PWM pin
+void setup() {
+pinMode(motorPin, OUTPUT);
+}
+void loop() {
+// Low speed
+analogWrite(motorPin, 70);
+delay(3000);
+// Medium speed
+analogWrite(motorPin, 150);
+delay(3000);
+// High speed
+analogWrite(motorPin, 255);
+delay(3000);
+// Stop motor
+analogWrite(motorPin, 0);
+delay(3000);
+}
+
+4. LED blinking 
+
+void setup() {
+  pinMode(13, OUTPUT);
+  Serial.begin(9600);
+}
+
+void loop() {
+  digitalWrite(13, HIGH);
+  Serial.println("LED ON");
+  delay(500);
+
+  digitalWrite(13, LOW);
+  Serial.println("LED OFF");
+  delay(500);
+}
+
+
+
+5. RGB Without Clear Pin
+
+
+int redPin = 9;
+int greenPin = 10;
+int bluePin = 11;
+
+void setup() {
+  pinMode(redPin, OUTPUT);
+  pinMode(greenPin, OUTPUT);
+  pinMode(bluePin, OUTPUT);
+}
+
+void loop() {
+
+  // RED
+  analogWrite(redPin, 0);
+  analogWrite(greenPin, 255);
+  analogWrite(bluePin, 255);
+  delay(1000);
+
+  // GREEN
+  analogWrite(redPin, 255);
+  analogWrite(greenPin, 0);
+  analogWrite(bluePin, 255);
+  delay(1000);
+
+  // BLUE
+  analogWrite(redPin, 255);
+  analogWrite(greenPin, 255);
+  analogWrite(bluePin, 0);
+  delay(1000);
+
+  // YELLOW
+  analogWrite(redPin, 0);
+  analogWrite(greenPin, 0);
+  analogWrite(bluePin, 255);
+  delay(1000);
+
+  // CYAN
+  analogWrite(redPin, 255);
+  analogWrite(greenPin, 0);
+  analogWrite(bluePin, 0);
+  delay(1000);
+
+  // MAGENTA
+  analogWrite(redPin, 0);
+  analogWrite(greenPin, 255);
+  analogWrite(bluePin, 0);
+  delay(1000);
+
+  // WHITE
+  analogWrite(redPin, 0);
+  analogWrite(greenPin, 0);
+  analogWrite(bluePin, 0);
+  delay(1000);
+
+  // LED OFF
+  analogWrite(redPin, 255);
+  analogWrite(greenPin, 255);
+  analogWrite(bluePin, 255);
+  delay(1000);
+}
+
